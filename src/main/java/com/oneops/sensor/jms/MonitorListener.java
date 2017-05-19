@@ -113,15 +113,12 @@ public class MonitorListener implements MessageListener {
 			}
 			msg.acknowledge();
 		} catch (JMSException e) {
-			e.printStackTrace();
 			logger.error("caught Exception in onMessage",e);
 			throw new RuntimeException(e);
 		} catch (SensorException e) {
-			e.printStackTrace();
 			logger.error("caught Exception in onMessage",e);
 			throw new RuntimeException(e);
 		} catch (IOException e) {
-			e.printStackTrace();
 			logger.error("Unable to persist thresholds/headers for " + gson.toJson(msg),e);
 			throw new RuntimeException(e);
 		}	
